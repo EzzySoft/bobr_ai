@@ -38,6 +38,7 @@ async def get_weather(message: types.Message):
             f"Описание: {weather_data['description']}"
         )
     else:
+        print("something went wrong, check connection...")
         response = "Что-то пошло не так :("
 
     await message.reply(response)
@@ -45,7 +46,11 @@ async def get_weather(message: types.Message):
 
 def get_weather_data(city):
     url = get_url(city)
-    response = requests.get(url)
+    try:
+        response = requests.get(url)
+    except requests.exceptions.ConnectionError:
+
+        return None
     if response.status_code == 200:
         data = response.json()
         return {
@@ -70,5 +75,6 @@ async def main():
 
 if __name__ == '__main__':
     import asyncio
+    print("Starting bot...")
 
     asyncio.run(main())
