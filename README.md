@@ -12,7 +12,7 @@
 Можно сразу запустить контейнер используя уже собраный образ:
 
 ```bash
-docker run -e BOT_TOKEN=<токен_бота> -e WEATHER_TOKEN=<токен_погоды> ezzysoft/bobr_ai:latest -d
+docker run -d -e BOT_TOKEN=<токен_бота> -e WEATHER_TOKEN=<токен_погоды> ezzysoft/bobr_ai:latest
 ```
 
 ## Сборка самостоятельно
@@ -28,7 +28,7 @@ docker build -t bobr_ai .
 Запустите контейнер, передав необходимые токены как переменные окружения:
 
 ```bash
-docker run -e BOT_TOKEN=<токен_бота> -e WEATHER_TOKEN=<токен_погоды> bobr_ai -d
+docker run -d -e BOT_TOKEN=<токен_бота> -e WEATHER_TOKEN=<токен_погоды> bobr_ai 
 ```
 
 ## Использование
